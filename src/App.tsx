@@ -1,7 +1,10 @@
-import { useState } from 'react'
+// import { useState } from 'react'
+import Header from './components/header'
 
 function App() {
-  return
+  return (
+    <Header/>
+  )
 }
 
 export default App
