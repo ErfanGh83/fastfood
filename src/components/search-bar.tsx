@@ -27,7 +27,7 @@ export default function SearchBar(){
             </button>
             <input className={`w-full h-12 rounded-r-full bg-black text-[18px] text-white transition-all duration-300 ease-in-out focus:outline-none ${
           isExpanded ? "w-[200px] ml-2" : "w-0"
-        }`} placeholder="search"/>
+        }`} placeholder="search" onBlur={()=>{setIsExpanded(false)}}/>
         </div>
     )
 }
