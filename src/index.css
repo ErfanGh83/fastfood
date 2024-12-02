@@ -7,3 +7,21 @@
   padding: 0;
   margin: 0;
 }
+@layer utilities {
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 24px;
+    height: 30px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: url('/src/assets/icons/scrollbar-icon.png') no-repeat center;
+    background-size: 30px;
+    border-radius: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 8px;
+  }
+}

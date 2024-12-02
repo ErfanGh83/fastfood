@@ -5,7 +5,8 @@ type Food = {
     price: number,
     description: string,
     img_src: string,
-    theme: string
+    theme: string,
+    tags: string[]
 }
 
 
@@ -18,7 +19,8 @@ export default function Container(){
             price: 9.99,
             description: `Naruto's favorite ramen is miso based with extra chasu, or pork. Ramen broth comes served in one of three ways- miso, salt, or soy sauce based. You may also see soup classed as tonkotsu, which refers to the pork stock base most commonly used in ramen.`,
             img_src: '/src/assets/images/naruto-ramen-img.webp',
-            theme: 'orange'
+            theme: 'orange',
+            tags: ['popular','classic']
         },
         {
             id: 2,
@@ -26,7 +28,8 @@ export default function Container(){
             price: 14.99,
             description: `Nasu dengaku is a Japanese miso-glazed eggplant dish. Nasu means eggplant (or aubergine) and dengaku refers to food coated in a sweet dengaku miso sauce. You'll often find skewered tofu or vegetables served this way. And from all the different types of miso dengaku, eggplant dengaku is my favourite.`,
             img_src: '/src/assets/images/nasu-dengaku-img.jpg',
-            theme: 'blue'
+            theme: 'blue',
+            tags: ['popular']
         },
         {
             id: 3,
@@ -34,7 +37,8 @@ export default function Container(){
             price: 13.99,
             description: `a Japanese rice ball made from white rice. It is usually formed into triangular or cylindrical shapes, and wrapped in nori (seaweed).`,
             img_src: '/src/assets/images/onigiri-img.jpg',
-            theme: 'purple'
+            theme: 'purple',
+            tags: ['popular']
         },
         {
             id: 4,
@@ -42,15 +46,36 @@ export default function Container(){
             price: 6.99,
             description: `Japanese sweet red bean paste made from azuki beans. It is the most common filling used in many Japanese sweets. In fact, you can find sweet bean paste in many other Asian pastries and desserts.`,
             img_src: '/src/assets/images/anko-img.webp',
-            theme: 'pink'
+            theme: 'pink',
+            tags: ['popular','sweat']
+        },
+        {
+            id: 5,
+            title: 'Syrup coated anko',
+            price: 6.99,
+            description: `Japanese sweet red bean paste made from azuki beans. It is the most common filling used in many Japanese sweets. In fact, you can find sweet bean paste in many other Asian pastries and desserts.`,
+            img_src: '/src/assets/images/anko-img.webp',
+            theme: 'pink',
+            tags: ['popular','sweat']
+        },
+        {
+            id: 6,
+            title: 'Syrup coated anko',
+            price: 6.99,
+            description: `Japanese sweet red bean paste made from azuki beans. It is the most common filling used in many Japanese sweets. In fact, you can find sweet bean paste in many other Asian pastries and desserts.`,
+            img_src: '/src/assets/images/anko-img.webp',
+            theme: 'pink',
+            tags: ['popular','sweat']
         },
     ]
 
+    const popularFoods = foods.filter((food)=>food.tags.includes('popular'))
+
     return(
-        <div className="w-full h-fit rounded-3xl flex flex-col shadow-md my-16 mx-auto">
-            <ul className="flex flex-wrap w-full my-8 mx-auto">
-                {foods.map((food)=>(
-                    <li key={food.id} className={`w-[400px] mx-auto food rounded-3xl overflow-hidden shadow-2xl pb-6 my-6`}>
+        <div className="container w-full h-fit rounded-3xl flex flex-col shadow-md my-16 mx-auto">
+            <ul className="popular-foods flex flex-row overflow-x-scroll custom-scrollbar w-full my-14 mx-auto snap-x">
+                {popularFoods.map((food)=>(
+                    <li key={food.id} className={`popular-food snap-center min-w-[400px] mx-2 food rounded-3xl overflow-hidden shadow-2xl pb-6 my-6`}>
                     <img className="w-full h-[300px]" src={food.img_src}></img>
                     <div className="food-info mx-6 max-h-[400px] min-h-[300px]">
                         <div className="w-full top-row flex flex-row justify-between">
