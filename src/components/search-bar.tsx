@@ -15,7 +15,7 @@ export default function SearchBar(){
         setTimeout(() => {
         setIsSpinning(false);
         setSearchBarSrc('/src/assets/icons/search-bar-icon.png');
-        }, 1000);
+        }, 500);
 
         setIsExpanded((prev) => !prev);
     };
@@ -27,8 +27,8 @@ export default function SearchBar(){
         }`} onClick={toggleExpand}>
                 <img className="w-6 h-6 rounded-full m-auto" src={searchBarSrc}/>
             </button>
-            <input className={`w-full h-12 rounded-r-full bg-black text-[18px] text-white transition-all duration-300 ease-in-out focus:outline-none ${
-          isExpanded ? "w-full ml-2" : "w-0"
+            <input className={`w-0 h-12 rounded-r-full bg-black text-[18px] text-white transition-all duration-300 ease-in-out focus:outline-none ${
+          isExpanded ? "w-[200px] ml-2" : "w-[0]"
         }`} placeholder="search" onBlur={()=>{setIsExpanded(false)}}/>
         </div>
     )
