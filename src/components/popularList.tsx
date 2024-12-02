@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 type Food = {
     id: number,
@@ -14,11 +15,12 @@ type Food = {
 export default function PopularList() {
 
     const [cart, setCart] = useState<Food[]>([]);
+    const [lastAction, setLastAction] = useState<string | null>(null);
 
    const foods : Food[] = [
         {
             id: 1,
-            title: 'Naruto Ramen',
+            title: 'Ramen',
             price: 9.99,
             description: `Naruto's favorite ramen is miso based with extra chasu, or pork. Ramen broth comes served in one of three ways- miso, salt, or soy sauce based. You may also see soup classed as tonkotsu, which refers to the pork stock base most commonly used in ramen.`,
             img_src: '/src/assets/images/naruto-ramen-img.webp',
@@ -54,23 +56,29 @@ export default function PopularList() {
         },
         {
             id: 5,
-            title: 'Syrup coated anko',
-            price: 6.99,
-            description: `Japanese sweet red bean paste made from azuki beans. It is the most common filling used in many Japanese sweets. In fact, you can find sweet bean paste in many other Asian pastries and desserts.`,
-            img_src: '/src/assets/images/anko-img.webp',
-            theme: 'pink',
-            tags: ['popular','sweat']
+            title: 'Sake',
+            price: 9.99,
+            description: `Sake, saké, or saki, also referred to as Japanese rice wine, is an alcoholic beverage of Japanese origin made by fermenting rice that has been polished to remove the bran. `,
+            img_src: '/src/assets/images/sake-img.jpg',
+            theme: 'green',
+            tags: ['popular','drink']
         },
         {
             id: 6,
-            title: 'Syrup coated anko',
+            title: 'Red bean soup',
             price: 6.99,
-            description: `Japanese sweet red bean paste made from azuki beans. It is the most common filling used in many Japanese sweets. In fact, you can find sweet bean paste in many other Asian pastries and desserts.`,
-            img_src: '/src/assets/images/anko-img.webp',
+            description: `Hong dou tang, hong dou sha, or red bean soup is a sweet Chinese dessert made from azuki beans. served in Mainland China, Taiwan, Hong Kong, Macau, and places with Chinese diaspora. It is categorized as a tong sui, or sweet soup. It is often served cold during the summer, and hot in the winter. `,
+            img_src: '/src/assets/images/red-bean-img.jpg',
             theme: 'pink',
-            tags: ['popular','sweat']
+            tags: ['popular']
         },
     ]
+
+    useEffect(() => {
+        if (lastAction) {
+            toast.info(lastAction);
+        }
+    }, [lastAction]);
 
     function initializeCart() {
         return foods.map((food) => ({
@@ -87,6 +95,7 @@ export default function PopularList() {
         setCart((prevCart) => {
             const existingFood = prevCart.find(item => item.id === food.id);
             if (existingFood) {
+                setLastAction(`${food.title} added to the cart!`);
                 return prevCart.map(item => 
                     item.id === food.id ? { ...item, count: item.count + 1 } : item
                 );
@@ -101,6 +110,15 @@ export default function PopularList() {
             const updatedCart = prevCart.map(item =>
                 item.id === food.id && item.count? { ...item, count: item.count - 1 } : item
             );
+
+            for(let i = 0; i < updatedCart.length; i++){
+                if(updatedCart[i].id == food.id){
+                    if(updatedCart[i].count == 0){
+                        setLastAction(`${food.title} removed from the cart!`);
+                    }
+                    break;
+                }
+            }
 
             return updatedCart;
         });
