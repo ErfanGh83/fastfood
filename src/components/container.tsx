@@ -1,5 +1,5 @@
 
-type Product = {
+type Food = {
     id: number,
     title: string,
     price: number,
@@ -11,70 +11,70 @@ type Product = {
 
 export default function Container(){
 
-    const products : Product[] = [
+    const foods : Food[] = [
         {
             id: 1,
-            title: 'Naruto Figure',
-            price: 239.99,
-            description: 'Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.',
-            img_src: '/src/assets/images/naruto-product-img.webp',
+            title: 'Naruto Ramen',
+            price: 9.99,
+            description: `Naruto's favorite ramen is miso based with extra chasu, or pork. Ramen broth comes served in one of three ways- miso, salt, or soy sauce based. You may also see soup classed as tonkotsu, which refers to the pork stock base most commonly used in ramen.`,
+            img_src: '/src/assets/images/naruto-ramen-img.webp',
             theme: 'orange'
         },
         {
             id: 2,
-            title: 'Kakashi Figure',
-            price: 199.99,
-            description: `Kakashi Hatake is a fictional character and one of the main protagonists in the Naruto manga and anime series created by Masashi Kishimoto. In the story, Kakashi is the teacher of Team 7, consisting of the series' primary characters, Naruto Uzumaki, Sasuke Uchiha, and Sakura Haruno.'`,
-            img_src: '/src/assets/images/kakashi-product-img.webp',
+            title: 'Nasu Dengaku',
+            price: 14.99,
+            description: `Nasu dengaku is a Japanese miso-glazed eggplant dish. Nasu means eggplant (or aubergine) and dengaku refers to food coated in a sweet dengaku miso sauce. You'll often find skewered tofu or vegetables served this way. And from all the different types of miso dengaku, eggplant dengaku is my favourite.`,
+            img_src: '/src/assets/images/nasu-dengaku-img.jpg',
             theme: 'blue'
         },
         {
             id: 3,
-            title: 'Sasuke Figure',
-            price: 249.99,
-            description: `Sasuke Uchiha is a fictional character in the Naruto manga and anime franchise created by Masashi Kishimoto. Sasuke belongs to the Uchiha clan, a notorious ninja family, and one of the most powerful, allied with Konohagakure.`,
-            img_src: '/src/assets/images/sasuke-product-img.webp',
+            title: 'Onigiri',
+            price: 13.99,
+            description: `a Japanese rice ball made from white rice. It is usually formed into triangular or cylindrical shapes, and wrapped in nori (seaweed).`,
+            img_src: '/src/assets/images/onigiri-img.jpg',
             theme: 'purple'
         },
         {
-            id: 3,
-            title: 'Sakura Figure',
-            price: 159.99,
-            description: `Sakura Haruno is a fictional character in the Naruto manga and anime series created by Masashi Kishimoto. Sakura is depicted as a kunoichi affiliated with Konohagakure and a part of Team 7, which consists of herself, Naruto Uzumaki, Sasuke Uchiha, and their sensei Kakashi Hatake.`,
-            img_src: '/src/assets/images/sakura-product-img.jpg',
+            id: 4,
+            title: 'Syrup coated anko',
+            price: 6.99,
+            description: `Japanese sweet red bean paste made from azuki beans. It is the most common filling used in many Japanese sweets. In fact, you can find sweet bean paste in many other Asian pastries and desserts.`,
+            img_src: '/src/assets/images/anko-img.webp',
             theme: 'pink'
         },
     ]
 
     return(
-        <div className="w-full h-fit rounded-3xl flex flex-col shadow-md my-16">
-            <ul className="flex flex-col w-1/2 my-8 mx-auto">
-                {products.map((product)=>(
-                    <li key={product.id} className="product rounded-3xl overflow-hidden shadow-md pb-6 my-6">
-                    <img className="w-full max-h-[600px]" src={product.img_src}></img>
-                    <div className="product-info mx-6">
+        <div className="w-full h-fit rounded-3xl flex flex-col shadow-md my-16 mx-auto">
+            <ul className="flex flex-wrap w-full my-8 mx-auto">
+                {foods.map((food)=>(
+                    <li key={food.id} className={`w-[400px] mx-auto food rounded-3xl overflow-hidden shadow-2xl pb-6 my-6`}>
+                    <img className="w-full h-[300px]" src={food.img_src}></img>
+                    <div className="food-info mx-6 max-h-[400px] min-h-[300px]">
                         <div className="w-full top-row flex flex-row justify-between">
-                            <div className="product-title flex flex-row">
+                            <div className="food-title flex flex-row">
                                 <img className="w-6 h-6" src="/src/assets/icons/leaf-icon.png"/>
-                                <h1 className="product-name text-[36px] font-semibold">{product.title}</h1> 
+                                <h1 className="food-name text-[36px] font-semibold">{food.title}</h1> 
                             </div>
                             
-                            <button>
+                            <button className="shadow-md">
                                 <img className="w-6 h-6" src="/src/assets/icons/3dots-icon.png"/>
                             </button>
                         </div>
                         
-                        <div className="description my-6">
-                            <p>{product.description}</p>
+                        <div className="description my-4 h-[200px]">
+                            <p>{food.description}</p>
                         </div>
-                        <div className="product-footer flex flex-row justify-between">
-                            <button className={`more-button w-[100px] h-[30px] bg-${product.theme}-500 text-white rounded-3xl shadow-md text-center`} >
-                                <p>Buy</p>
-                            </button>
-                            <h3 className="text-[36px] font-bold">
-                                ${product.price}
-                            </h3>
-                        </div>
+                    </div>
+                    <div className="food-footer flex flex-row justify-between">
+                        <button className={`more-button w-[100px] h-[30px] rounded-3xl shadow-md text-center`} >
+                            <p>Buy</p>
+                        </button>
+                        <h3 className="text-[36px] font-bold mx-2">
+                            ${food.price}
+                        </h3>
                     </div>
                 </li>
                 ))}
