@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { toast } from "react-toastify";
 
 type Food = {
     id: number;
@@ -90,6 +91,8 @@ export const FoodProvider = ({ children }: { children: ReactNode }) => {
                     item.id === food.id ? { ...item, count: item.count + 1 } : item
                 );
             }
+            
+            toast.success(`${food.title} added to the cart!`);
             return [...prevCart, { ...food, count: 1 }];
         });
     };
@@ -99,6 +102,18 @@ export const FoodProvider = ({ children }: { children: ReactNode }) => {
             const updatedCart = prevCart.map((item) =>
                 item.id === food.id ? { ...item, count: item.count - 1 } : item
             );
+
+            for(let i=0 ; i<cart.length; i++){
+                console.log(cart[i])
+                if(cart[i].id == food.id){
+                    if(cart[i].count == 1){
+                        toast.warn(`${food.title} removed from the cart!`);
+                        cart[i].count = 0;
+                    }
+                    break;
+                }
+            }
+
             return updatedCart.filter((item) => item.count > 0);
         });
     };
