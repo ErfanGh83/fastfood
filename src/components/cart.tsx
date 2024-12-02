@@ -14,7 +14,7 @@ export default function Cart(){
                     {inCartFoods.map((food)=>(
                         <li className='food justify-betwee justify-start flex flex-row-reverse items-center border-2 border-gray-200 justify-between'>
                             <div className='w-1/3'>
-                                <h1 className='w-1/3 text-center'>{food.title}</h1>
+                                <h1 className='w-1/3 text-center text-xl'>{food.title}</h1>
                             </div>
 
                             <div className={`button-container flex flex-row w-[300px] h-[50px] items-center justify-evenly m-4 bg-gray-100 rounded-3xl shadow-md text-center`} >
@@ -36,15 +36,18 @@ export default function Cart(){
                             </div>
 
                             <div className='w-1/3 text-center'>
-                                <h1>${food.price*food.count}</h1>
+                                <h1 className='text-xl'>${food.price*food.count}</h1>
                             </div>
                         </li>
                     ))}
                 </ul>
-
-                <div>
-                    <h1 className='text-[48px] font-bold'>Total : {inCartFoods.reduce((a, b) => a + b.count*b.price, 0)}</h1>
-                </div>
+                    
+                <form className='flex flex-row justify-between items-center'>
+                    <h1 className='text-[48px] font-bold'>Total : ${inCartFoods.reduce((a, b) => a + b.count*b.price, 0)}</h1>
+                    <button className='bg-red-600 rounded-l-3xl w-[200px] h-[60px] border-2 border-black hover:scale-105'>
+                        <p className='order-button text-3xl text-center font-semibold hover:text-white'>Order</p>
+                    </button>
+                </form>
             </div>
         </div>
     )

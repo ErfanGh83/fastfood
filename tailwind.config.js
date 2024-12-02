@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      cursor: {
+        'custom': "url('/src/assets/icons/kunai-icon.png') 16 16, auto",
+      },
+    },
   },
   plugins: [],
 }

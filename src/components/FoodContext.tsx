@@ -81,6 +81,24 @@ export const FoodProvider = ({ children }: { children: ReactNode }) => {
             theme: 'pink',
             tags: ['popular']
         },
+        {
+            id: 7,
+            title: 'Sushi',
+            price: 8.99,
+            description: `traditional Japanese dish made with vinegared rice (鮨飯, sushi-meshi), typically seasoned with sugar and salt, and combined with a variety of ingredients (ねた, neta), such as seafood, vegetables, or meat: seafood is the most common, and may be served raw, cooked, ...`,
+            img_src: '/src/assets/images/sushi-img.webp',
+            theme: 'black',
+            tags: []
+        },
+        {
+            id: 8,
+            title: 'Natto',
+            price: 4.99,
+            description: `traditional Japanese dish made with vinegared rice (鮨飯, sushi-meshi), typically seasoned with sugar and salt, and combined with a variety of ingredients (ねた, neta), such as seafood, vegetables, or meat: seafood is the most common, and may be served raw, cooked, ...`,
+            img_src: '/src/assets/images/natto-img.jpg',
+            theme: 'brown',
+            tags: []
+        },
     ];
 
     const addFood = (food: Food) => {
