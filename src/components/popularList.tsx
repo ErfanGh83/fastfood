@@ -10,13 +10,13 @@ export default function PopularList() {
     return(
         <ul className="popular-foods flex flex-row overflow-x-scroll custom-scrollbar w-full mb-12 mt-2 mx-auto snap-x">
             {popularFoods.map((food)=>(
-                <li key={food.id} className={`popular-food snap-center min-w-[400px] mx-2 food rounded-3xl overflow-hidden shadow-2xl pb-6 my-6`}>
-                <img className="w-full h-[300px]" src={food.img_src}></img>
-                <div className="food-info mx-6 max-h-[400px] min-h-[300px]">
+                <li key={food.id} className={`popular-food snap-center sm:min-w-[250px] lg:min-w-[400px] sm:mx-1 lg:mx-2 food rounded-3xl overflow-hidden shadow-2xl sm:pb-3 lg:pb-6 sm:my-3 lg:my-6`}>
+                <img className="w-full sm:h-[200px] lg:h-[300px]" src={food.img_src}></img>
+                <div className="food-info sm:mx-3 lg:mx-6 sm:max-h-[300px] lg:max-h-[400px] sm:min-h-[200px] lg:min-h-[300px]">
                     <div className="w-full top-row flex flex-row justify-between">
                         <div className="food-title flex flex-row">
                             <img className="w-6 h-6" src="/src/assets/icons/leaf-icon.png"/>
-                            <h1 className="food-name text-[36px] font-semibold">{food.title}</h1> 
+                            <h1 className="food-name sm:text-[20px] lg:text-[36px] font-semibold">{food.title}</h1> 
                         </div>
                         
                         <button className="shadow-md">
@@ -24,7 +24,7 @@ export default function PopularList() {
                         </button>
                     </div>
                     
-                    <div className="description my-4 h-[200px]">
+                    <div className="description sm:my-2 lg:my-4 sm:h-[150px] lg:h-[200px] overflow-y-auto">
                         <p>{food.description}</p>
                     </div>
                 </div>
