@@ -9,6 +9,9 @@ export default {
       cursor: {
         'custom': "url('/src/assets/icons/kunai-icon.png') 16 16, auto",
       },
+      screens: {
+        'sm': '480px',
+      },
     },
   },
   plugins: [],
