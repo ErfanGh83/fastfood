@@ -96,41 +96,41 @@ export default function Cart() {
 
             {isPopupVisible && (
                 <div className="popup-overlay fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
-                    <div className="popup-form bg-white p-6 rounded-lg shadow-lg w-1/3">
+                    <div className="popup-form bg-yellow-50 p-6 rounded-lg shadow-lg w-1/3">
                         <h2>Order Submission</h2>
                         <form onSubmit={handlePopupSubmit}>
                         <div className="mb-4">
-                                <label htmlFor="fullName" className="block">Full Name</label>
                                 <input
                                     type="text"
                                     id="fullName"
                                     name="fullName"
                                     value={orderDetails.fullName}
                                     onChange={handleInputChange}
+                                    placeholder='full name'
                                     className="border p-2 w-full"
                                     required
                                 />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="phoneNumber" className="block">Phone Number</label>
                                 <input
                                     type="text"
                                     id="phoneNumber"
                                     name="phoneNumber"
                                     value={orderDetails.phoneNumber}
                                     onChange={handleInputChange}
+                                    placeholder='phone number'
                                     className="border p-2 w-full"
                                     required
                                 />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="address" className="block">Address</label>
                                 <input
                                     type="text"
                                     id="address"
                                     name="address"
                                     value={orderDetails.address}
                                     onChange={handleInputChange}
+                                    placeholder='address'
                                     className="border p-2 w-full"
                                     required
                                 />
