@@ -7,7 +7,7 @@ export default function SearchBar(){
     const [searchBarSrc, setSearchBarSrc] = useState('/src/assets/icons/search-bar-icon.png');
 
     const toggleExpand = () => {
-        console.log(isExpanded)
+
         setSearchBarSrc('/src/assets/icons/sharingan-search-icon.webp');
 
         setIsSpinning(true);
