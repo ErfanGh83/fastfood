@@ -7,7 +7,7 @@ export default function MenuItems(){
 
     return(
         <div className="menu-items">
-            <ul className="items-container w-[380px] h-[40px] flex flex-row justify-evenly">
+            <ul className="items-container w-[380px] h-[40px] flex flex-row justify-evenly lg:flex sm:hidden">
                 <HomeItem/>
                 <CartItem/>
                 <ProfilItem/>

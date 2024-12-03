@@ -13,7 +13,7 @@ export default function Menu() {
                     <div className="w-full top-row flex flex-row justify-between">
                         <div className="food-title flex flex-row">
                             <img className="w-6 h-6" src="/src/assets/icons/leaf-icon.png"/>
-                            <h1 className="food-name text-[36px] font-semibold sm:text-[18px]">{food.title}</h1> 
+                            <h1 className="food-name lg:text-[36px] font-semibold sm:text-[18px]">{food.title}</h1> 
                         </div>
                         
                         <button className="shadow-md">
@@ -22,7 +22,7 @@ export default function Menu() {
                     </div>
                     
                     <div className="description lg:h-[200px] sm:h-[100px] overflow-y-auto">
-                        <p className='sm:text-[12px] lg:text-[24px]'>{food.description}</p>
+                        <p className='sm:text-[10px] lg:text-[16px]'>{food.description}</p>
                     </div>
                 </div>
                 <div className="food-footer flex flex-row justify-between items-center">
