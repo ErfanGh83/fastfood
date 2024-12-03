@@ -1,8 +1,10 @@
 import { useFoodContext } from './FoodContext';
+import { useState } from 'react';
 
 export default function Cart(){
 
     const {cart, addFood, reduceFood } = useFoodContext();
+    const [isSpinning, setIsSpinning] = useState(false);
 
     const inCartFoods = cart.filter((food)=>food.count > 0)
 
@@ -44,9 +46,11 @@ export default function Cart(){
                     
                 <form className='flex flex-row justify-between items-center'>
                     <h1 className='text-[48px] font-bold'>Total : ${inCartFoods.reduce((a, b) => a + b.count*b.price, 0).toPrecision(4)}</h1>
-                    <button className='bg-yellow-600 rounded-l-3xl flex flex-row items-center pr-4 justify-evenly w-[200px] h-[60px] border-2 border-black hover:scale-105'>
-                        <img className='w-8 h-8 hover:animate-spin' src='/src/assets/icons/scrollbar-icon.png' />
-                        <p className='order-button text-3xl text-center font-semibold hover:text-white'>Order</p>
+                    <button className='bg-yellow-400 rounded-l-3xl flex flex-row items-center pr-4 justify-evenly w-[200px] h-[60px] border-2 border-black hover:scale-105' onMouseEnter={()=>setIsSpinning(true)} onMouseLeave={()=>setIsSpinning(false)}>
+                        <img className={`w-8 h-8 hover:animate-spin ${
+                            isSpinning? "animate-spin" : ""}`} src='/src/assets/icons/scrollbar-icon.png' />
+                        <p className={`order-button text-3xl text-center font-semibold ${
+                            isSpinning? "animate-pulse" : ""}`}>Order</p>
                     </button>
                 </form>
             </div>
